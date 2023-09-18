@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:smart_parking/flutter_flow/flutter_flow_theme.dart';
 
@@ -185,45 +184,45 @@ class  _MyPageStatefeedback extends State<rate> {
                                 Row(
                                     mainAxisAlignment:MainAxisAlignment.spaceBetween,
                                     children:[
-                                      NeumorphicButton(
-                                        margin:EdgeInsets.only(top:12),
+                                      // NeumorphicButton(
+                                      //   margin:EdgeInsets.only(top:12),
 
-                                        onPressed: () {
-                                          // Validate returns true if the form is valid, or false otherwise.
-                                          if (_formKey.currentState!.validate()) {
-                                            _formKey.currentState!.save();
+                                      //   onPressed: () {
+                                      //     // Validate returns true if the form is valid, or false otherwise.
+                                      //     if (_formKey.currentState!.validate()) {
+                                      //       _formKey.currentState!.save();
 
-                                            // If the form is valid, display a snackbar. In the real world,
-                                            // you'd often call a server or save the information in a database.
-                                            final message =
-                                                'Username: $username\nPassword: $password\nEmail: $email';
-                                            final snackBar = SnackBar(
-                                              content: Text(
-                                                message,
-                                                style: TextStyle(fontSize: 20),
-                                              ),
+                                      //       // If the form is valid, display a snackbar. In the real world,
+                                      //       // you'd often call a server or save the information in a database.
+                                      //       final message =
+                                      //           'Username: $username\nPassword: $password\nEmail: $email';
+                                      //       final snackBar = SnackBar(
+                                      //         content: Text(
+                                      //           message,
+                                      //           style: TextStyle(fontSize: 20),
+                                      //         ),
 
-                                            );
-                                            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                      //       );
+                                      //       ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
-                                          }
-
-
-
-
-                                        },
+                                      //     }
 
 
 
 
-                                        style:NeumorphicStyle(
-                                            shape:NeumorphicShape.flat,
-                                            boxShape:
-                                            NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+                                      //   },
 
-                                            border:NeumorphicBorder()
-                                        ),// NeumorphicStyle
-                                      ),
+
+
+
+                                      //   style:NeumorphicStyle(
+                                      //       shape:NeumorphicShape.flat,
+                                      //       boxShape:
+                                      //       NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+
+                                      //       border:NeumorphicBorder()
+                                      //   ),// NeumorphicStyle
+                                      // ),
 
                                     ]
 

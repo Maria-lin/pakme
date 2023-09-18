@@ -37,8 +37,8 @@ class _MyAppState extends State<MyApp> {
   Locale? _locale;
   ThemeMode _themeMode = ThemeMode.system;
 
-  Stream<SmartParkingFirebaseUser> ? userStream;
-  SmartParkingFirebaseUser ?  initialUser;
+  Stream<SmartParkingFirebaseUser>? userStream;
+  SmartParkingFirebaseUser? initialUser;
   bool displaySplashImage = true;
 
   final authUserSub = authenticatedUserStream.listen((_) {});
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
       ..listen((user) => initialUser ?? setState(() => initialUser = user));
     Future.delayed(
       Duration(seconds: 1),
-          () => setState(() => displaySplashImage = false),
+      () => setState(() => displaySplashImage = false),
     );
   }
 
@@ -63,8 +63,8 @@ class _MyAppState extends State<MyApp> {
 
   void setLocale(Locale value) => setState(() => _locale = value);
   void setThemeMode(ThemeMode mode) => setState(() {
-    _themeMode = mode;
-  });
+        _themeMode = mode;
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -79,33 +79,36 @@ class _MyAppState extends State<MyApp> {
       ],
       locale: _locale,
       supportedLocales: const [Locale('en', '')],
-      theme: ThemeData(brightness: Brightness.light),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        appBarTheme: AppBarTheme(color: Colors.white),
+      ),
       themeMode: _themeMode,
       home: initialUser == null || displaySplashImage
           ? Center(
-        child: SizedBox(
-          width: 50,
-          height: 50,
-          child: SpinKitCubeGrid(
-            color: FlutterFlowTheme.of(context).primaryColor,
-            size: 50,
-          ),
-        ),
-      )
+              child: SizedBox(
+                width: 50,
+                height: 50,
+                child: SpinKitCubeGrid(
+                  color: FlutterFlowTheme.of(context).primaryColor,
+                  size: 50,
+                ),
+              ),
+            )
           : currentUser!.loggedIn
-          ? NavBarPage(initialPage:'HomePage' ,)
-          : MainWidget(),
+              ? NavBarPage(
+                  initialPage: 'HomePage',
+                )
+              : MainWidget(),
     );
   }
 }
 
 class NavBarPage extends StatefulWidget {
-
   const NavBarPage({
-    Key? key, required this.initialPage,
+    Key? key,
+    required this.initialPage,
   }) : super(key: key);
-
-
 
   final String initialPage;
 
@@ -129,9 +132,8 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'HomePage': HomePageWidget(),
       'Réclamations': ReclamationWidget(),
-      'affichage ' : annonceWidget(),
+      'affichage ': annonceWidget(),
       'profilePage': ProfilePageWidget(),
-
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
@@ -157,8 +159,8 @@ class _NavBarPageState extends State<NavBarPage> {
               children: [
                 Icon(
                   currentIndex == 0
-                      ? FontAwesomeIcons.searchLocation
-                      : FontAwesomeIcons.searchLocation,
+                      ? FontAwesomeIcons.locationPinLock
+                      : FontAwesomeIcons.warehouse,
                   color: currentIndex == 0
                       ? FlutterFlowTheme.of(context).secondaryColor
                       : Color.fromRGBO(203, 203, 203, 1),
@@ -205,9 +207,7 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  currentIndex == 2
-                      ? Icons.announcement
-                      : Icons.announcement,
+                  currentIndex == 2 ? Icons.announcement : Icons.announcement,
                   color: currentIndex == 2
                       ? FlutterFlowTheme.of(context).secondaryColor
                       : FlutterFlowTheme.of(context).tertiaryColor,
@@ -252,7 +252,6 @@ class _NavBarPageState extends State<NavBarPage> {
               ],
             ),
           ),
-
         ],
       ),
     );

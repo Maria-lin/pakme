@@ -1,12 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:smart_parking/flutter_flow/flutter_flow_theme.dart';
 
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:smart_parking/flutter_flow/flutter_flow_widgets.dart';
 
 import '../generateqecode.dart';
@@ -16,28 +14,28 @@ class MyPage extends StatefulWidget {
   _MyPageState createState() => _MyPageState();
 }
 
-class MyShapePathProvider extends NeumorphicPathProvider {
-  @override
-  bool shouldReclip(NeumorphicPathProvider oldClipper) {
-    return true;
-  }
+// class MyShapePathProvider extends NeumorphicPathProvider {
+//   @override
+//   bool shouldReclip(NeumorphicPathProvider oldClipper) {
+//     return true;
+//   }
 
-  @override
-  Path getPath(Size size) {
-    return Path()
-      ..moveTo(0, 0)
-      ..lineTo(size.width/2, 0)
-      ..lineTo(size.width, size.height/2)
-      ..lineTo(size.width/2, size.height/2)
-      ..lineTo(size.width, size.height)
-      ..lineTo(0, size.height)
-      ..close();
-  }
+//   @override
+//   Path getPath(Size size) {
+//     return Path()
+//       ..moveTo(0, 0)
+//       ..lineTo(size.width/2, 0)
+//       ..lineTo(size.width, size.height/2)
+//       ..lineTo(size.width/2, size.height/2)
+//       ..lineTo(size.width, size.height)
+//       ..lineTo(0, size.height)
+//       ..close();
+//   }
 
-  @override
-  // TODO: implement oneGradientPerPath
-  bool get oneGradientPerPath => throw UnimplementedError();
-}
+//   @override
+//   // TODO: implement oneGradientPerPath
+//   bool get oneGradientPerPath => throw UnimplementedError();
+// }
 class _MyPageState extends State<MyPage> {
   List<String> _locations = ['femme', 'Homme']; // Option 2 String _selectedLocation;
   TextEditingController sampledata1=new TextEditingController();
